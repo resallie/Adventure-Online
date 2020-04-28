@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/mdb.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/mdb.css" />
+    <style>
+        .skill{
+            width: 30px;
+            height: 18px;
+            display: inline-block !important;
+            overflow:hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-3">
+                <h3>Home</h3>
+            </div>
+            <div class="col-6 d-flex justify-content-center">
+                <div class="col"> <h1 class="editmode">Variis Arino</h1></div>
+                <div class="col">
+                    <div class="row">
+
+                        <h4>Level:  </h4>
+                        <h4 class="editmode">5</h4>
+
+                    </div>
+                    <div class="row">
+
+                        <h4>Class:  </h4>
+                        <h4 class="editmode">Sorcerer</h4>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-3">
+                <div class="custom-control custom-switch">
+
+
+                    <label style="">
+                        Play
+                        <input type="checkbox" class="custom-control-input" id="switch" />
+                        <label class="custom-control-label" style="margin-left: 40px;" for="switch"></label>
+                        <span class="lever"></span> Edit
+                    </label>
+                    <script>
+                        $('#switch').click(function () {
+                            console.log('help');
+                            if ($('#switch').prop('checked')) {
+                                $(".editmode").attr("contenteditable", "true");
+                            } else {
+                                $(".editmode").removeAttr("contenteditable");
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false">Inventory</a>
+                        <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Home Module</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Notes</a>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    Hello
+
+
+                </div>
+
+
+                <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                    <div class="card">
+                        <div id="home">
+                            <div class="row my-5 mx-4">
+                                <div class="col" id="mod1">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Health</h5>
+                                            <p class="card-text editmode">With supporting text below as a natural lead-in to additional content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col" id="mod2">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ability Scores</h5>
+                                            <div class="row justify-content-center">
+                                                <div class="col text-center">
+                                                    <h1><span onclick="rollDice();" style="width: 50px; height: 45px; display: inline-block; overflow: hidden" class="badge badge-secondary editmode">7</span></h1>
+                                                    <h6>Strength</h6>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="badge badge-secondary editmode">12</span></h1>
+                                                    <h6>Dexterity</h6>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="badge badge-secondary editmode">7</span></h1>
+                                                    <h6>Constitution</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row justify-content-center">
+                                                <div class="col text-center">
+                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="badge badge-secondary editmode">15</span></h1>
+                                                    <h6>Intelligence</h6>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="badge badge-secondary editmode">10</span></h1>
+                                                    <h6>Wisdom</h6>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <h1 class="text-center"><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class=" text-center badge badge-secondary editmode">11</span></h1>
+                                                    <h6>Charisma</h6>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col" id="mod3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Skills</h5>
+                                            <div class="row">
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Acrobatics</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class=" skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Animal Handling</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class=" skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Arcana</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class=" skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Athletics</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Deception</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">History</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Insight</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Intimidation</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Investigation</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Medicine</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Nature</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Perception</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Performance</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Persuasion</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Religion</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Sleight of Hand</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class=" skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Stealth</p>
+                                                </div>
+                                                <div class="col text-center">
+                                                    <span onclick="rollDice();" class="skill badge badge-pill badge-light editmode">+1</span>
+                                                    <p class="card-text">Survival</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-5 mx-4">
+                                <div class="col" id="mod4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title ">Attacks</h5>
+                                            <p class="card-text editmode">With supporting text below as a natural lead-in to additional content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col" id="mod5">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Features</h5>
+                                            <p class="card-text editmode">With supporting text below as a natural lead-in to additional content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col" id="mod6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Personality</h5>
+                                            <p class="card-text editmode">With supporting text below as a natural lead-in to additional content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    Seeya
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function rollDice() {
+            alert("You rolled: 15 (14 + 1)");
+        }
+    </script>
+</body>
+</html>

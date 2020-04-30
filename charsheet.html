@@ -4,14 +4,64 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/mdb.js"></script>
+    <script defer src="js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/mdb.css" />
+    <link href="css/all.css" rel="stylesheet">
     <style>
-        .skill{
+        .skill {
             width: 30px;
             height: 18px;
             display: inline-block !important;
-            overflow:hidden;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+            .skill:hover {
+                background-color: darkgray !important;
+            }
+
+        .ability {
+            cursor: pointer;
+        }
+
+            .ability:hover {
+                background-color: rebeccapurple !important;
+            }
+
+        .closecard {
+            position: absolute;
+            top: -30px;
+            left: 290px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 30px;
+        }
+        .nullcard{
+           
+            height:300px;
+            width: 100%;
+            border-style:dashed;
+            border-color: cornflowerblue;
+            border-width: 5px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:cornflowerblue;
+            border-radius:30px;
+            cursor:pointer;
+           
+        }
+        .nullcard:hover{
+            color:lightskyblue;
+            border-color:lightskyblue;
+        }
+        body{
+            font-family:'Hoefler Text'; 
+            color:darkred;
+        }
+        .homebutton:hover{
+            background-color:lightgray;
         }
     </style>
 </head>
@@ -19,9 +69,10 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-3">
-                <h3>Home</h3>
+            <div class="col-2 text-center" >
+                <h3 style="cursor:pointer;" class="homebutton" onclick="window.location.href='index.html'">Home</h3>
             </div>
+            <div class="col-1"></div>
             <div class="col-6 d-flex justify-content-center">
                 <div class="col"> <h1 class="editmode">Variis Arino</h1></div>
                 <div class="col">
@@ -53,11 +104,17 @@
                     </label>
                     <script>
                         $('#switch').click(function () {
-                            console.log('help');
+                           
                             if ($('#switch').prop('checked')) {
                                 $(".editmode").attr("contenteditable", "true");
+                                $('.skill, .ability').removeAttr("onclick");
+                                $('.closecard').removeAttr("hidden");
+                                $('.nullcard').css("visibility", "visible");
                             } else {
                                 $(".editmode").removeAttr("contenteditable");
+                                $('.skill, .ability').attr("onclick", "rollDice()");
+                                $('.closecard').attr("hidden", "true");
+                                 $('.nullcard').css("visibility", "hidden");
                             }
                         });
                     </script>
@@ -89,45 +146,134 @@
 
                     <div class="card">
                         <div id="home">
-                            <div class="row my-5 mx-4">
-                                <div class="col" id="mod1">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Health</h5>
-                                            <p class="card-text editmode">With supporting text below as a natural lead-in to additional content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <div class="row my-5 mx-4 ">
+                                <div hidden class="col-4 order-1 nullcard text-center mb-3 " id="null1">
+                                    <button onclick="setActive(this);" style="-webkit-appearance: none" type="button" data-toggle="modal" data-target=".modselector" class="fa fa-plus-circle fa-7x "></button>
+                                  
+                                </div>
+                                <div hidden class="col-4 order-2 nullcard mb-3 " id="null2">
+                                     <button onclick="setActive(this);" style="-webkit-appearance: none"type="button" data-toggle="modal" data-target=".modselector" class="fa fa-plus-circle fa-7x "></button>
+                                </div>
+                                <div hidden class="col-4 order-3 nullcard mb-3 " id="null3">
+                                    <button onclick="setActive(this);" style="-webkit-appearance: none" type="button" data-toggle="modal" data-target=".modselector" class="fa fa-plus-circle fa-7x "></button>
+                                </div>
+                                <div hidden class="col-4 order-4 nullcard" id="null4">
+                                    <button onclick="setActive(this);" style="-webkit-appearance: none" type="button" data-toggle="modal" data-target=".modselector" class="fa fa-plus-circle fa-7x "></button>
+                                </div>
+                                <div hidden class="col-4 order-5 nullcard" id="null5">
+                                    <button onclick="setActive(this);" style="-webkit-appearance: none" type="button" data-toggle="modal" data-target=".modselector" class="fa fa-plus-circle fa-7x "></button>
+                                </div>
+                                <div hidden class="col-4 order-6 nullcard" id="null6">
+                                    <button onclick="setActive(this);" style="-webkit-appearance: none" type="button" data-toggle="modal" data-target=".modselector" class="fa fa-plus-circle fa-7x "></button>
+                                </div>
+                                <div class="modal fade modselector" tabindex="-1">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content ">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modSelectTitle">Choose A Module</h5>
+                                              
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-check ">
+                                                    <input class="form-check-input" type="radio" name="modRadios" id="healthRadio" value="mod1" disabled>
+                                                    <label class="form-check-label" for="healthRadio">
+                                                        Health
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="modRadios" id="abilityRadio" value="mod2" disabled>
+                                                    <label class="form-check-label" for="abilityRadio">
+                                                        Ability Scores
+                                                    </label>
+                                                </div>
+                                                <div class="form-check ">
+                                                    <input class="form-check-input" type="radio" name="modRadios" id="skillRadio" value="mod3" disabled>
+                                                    <label class="form-check-label" for="skillRadio">
+                                                        Skills
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="modRadios" id="attackRadio" value="mod4" disabled>
+                                                    <label class="form-check-label" for="attackRadio">
+                                                        Attacks
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="modRadios" id="featRadio" value="mod5" disabled>
+                                                    <label class="form-check-label" for="featRadio">
+                                                        Features
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="modRadios" id="perRadio" value="mod6" disabled>
+                                                    <label class="form-check-label" for="perRadio">
+                                                        Personality
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button onclick="confirmMod()" data-dismiss="modal" type="button" class="btn btn-primary">Confirm</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col" id="mod2">
+                                <div class="col-4 order-1 mb-5" id="mod1">
                                     <div class="card">
                                         <div class="card-body">
+                                            <button hidden type="button" onclick="closeButton(this);" class="btn btn-unique closecard">X</button>
+                                            <h5 class="card-title">Health</h5>
+                                            <div class="row">
+                                                <div class="col-4 text-center">
+                                                    <h3 style="overflow: hidden; display: inline-block; width: 50px; height: 30px; margin-bottom: -5px;" class="editmode">
+                                                        13
+                                                    </h3>
+                                                    <!--<h1 style="margin-top: -50px; margin-bottom:0px; margin-left:5px;">_</h1>-->
+                                                    <h3 style="border-top-width: 4px; border-top-color: black; border-top-style:solid; overflow:hidden; display:inline-block; width: 50px; height:40px;" class="editmode">13</h3>
+                                                </div>
+                                                <div class="col-4 text-center">
+
+                                                    <i class="fas fa-shield-alt fa-3x"></i>
+                                                    <h4>Armor Class</h4>
+                                                </div>
+                                                <div class="col-4">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4 order-2 mb-5" id="mod2">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <button hidden type="button" onclick="closeButton(this);" class="btn btn-unique closecard">X</button>
                                             <h5 class="card-title">Ability Scores</h5>
                                             <div class="row justify-content-center">
                                                 <div class="col text-center">
-                                                    <h1><span onclick="rollDice();" style="width: 50px; height: 45px; display: inline-block; overflow: hidden" class="badge badge-secondary editmode">7</span></h1>
+                                                    <h1><span onclick="rollDice();" style="width: 50px; height: 45px; display: inline-block; overflow: hidden" class="ability badge badge-secondary editmode">7</span></h1>
                                                     <h6>Strength</h6>
                                                 </div>
                                                 <div class="col text-center">
-                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="badge badge-secondary editmode">12</span></h1>
+                                                    <h1 class="text-center"><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="ability badge badge-secondary editmode">12 </span></h1>
                                                     <h6>Dexterity</h6>
                                                 </div>
                                                 <div class="col text-center">
-                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="badge badge-secondary editmode">7</span></h1>
+                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="ability badge badge-secondary editmode">7</span></h1>
                                                     <h6>Constitution</h6>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center">
                                                 <div class="col text-center">
-                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="badge badge-secondary editmode">15</span></h1>
+                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="ability badge badge-secondary editmode">15</span></h1>
                                                     <h6>Intelligence</h6>
                                                 </div>
                                                 <div class="col text-center">
-                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="badge badge-secondary editmode">10</span></h1>
+                                                    <h1><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class=" ability badge badge-secondary editmode">10</span></h1>
                                                     <h6>Wisdom</h6>
                                                 </div>
                                                 <div class="col text-center">
-                                                    <h1 class="text-center"><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class=" text-center badge badge-secondary editmode">11</span></h1>
+                                                    <h1 class="text-center"><span onclick="rollDice();" style="width:50px; height:45px; display:inline-block; overflow:hidden" class="ability text-center badge badge-secondary editmode">11</span></h1>
                                                     <h6>Charisma</h6>
                                                 </div>
                                             </div>
@@ -135,9 +281,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col" id="mod3">
+                                <div class="col-4 order-3 mb-5" id="mod3">
                                     <div class="card">
                                         <div class="card-body">
+                                            <button hidden type="button" onclick="closeButton(this);" class="btn btn-unique closecard">X</button>
                                             <h5 class="card-title">Skills</h5>
                                             <div class="row">
                                                 <div class="col text-center">
@@ -227,32 +374,47 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mb-5 mx-4">
-                                <div class="col" id="mod4">
+
+
+                                <div class="col-4 mb-5 order-4" id="mod4">
                                     <div class="card">
                                         <div class="card-body">
+                                            <button hidden type="button" onclick="closeButton(this);" class="btn btn-unique closecard">X</button>
                                             <h5 class="card-title ">Attacks</h5>
                                             <p class="card-text editmode">With supporting text below as a natural lead-in to additional content.</p>
                                             <a href="#" class="btn btn-primary">Go somewhere</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col" id="mod5">
+                                <div class="col-4 mb-5 order-5" id="mod5">
                                     <div class="card">
                                         <div class="card-body">
+                                            <button hidden type="button" onclick="closeButton(this);" class="btn btn-unique closecard">X</button>
                                             <h5 class="card-title">Features</h5>
-                                            <p class="card-text editmode">With supporting text below as a natural lead-in to additional content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            <p class="card-text editmode">
+                                                Speech of Beast and Leaf: She can talk to plants and animals. She can't hear them back. <br /><br />
+                                                Phoenix Sorcery: She can surround herself with fire once per long rest. <br /><br />
+                                                Firbolg Strength: Double your carry capacity and push/pull/lift strength.
+                                            </p>
+
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col" id="mod6">
+                                <div class="col-4 mb-5 order-6" id="mod6">
                                     <div class="card">
                                         <div class="card-body">
+                                            <button hidden type="button" onclick="closeButton(this);" class="btn btn-unique closecard">X</button>
                                             <h5 class="card-title">Personality</h5>
-                                            <p class="card-text editmode">With supporting text below as a natural lead-in to additional content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            <p class="card-text editmode">
+                                                Variis is a gentle giant, she loves befriending animals and making tea.
+                                            </p>
+                                            <h6 class="card-subtitle text-muted">Ideals</h6>
+                                            <p class="card-text editmode">Protect the weak, and avoid causing harm when possible.</p>
+                                            <h6 class="card-subtitle text-muted">Bonds</h6>
+                                            <p class="card-text editmode">She loves her weasel Vult and wants to protect him.</p>
+                                            <h6 class="card-subtitle text-muted">Flaws</h6>
+                                            <p class="card-text editmode">She tends to overthink things.</p>
+
                                         </div>
                                     </div>
                                 </div>
@@ -273,8 +435,120 @@
 
     </div>
     <script>
+        var activeMod;
         function rollDice() {
             alert("You rolled: 15 (14 + 1)");
+        }
+        function closeButton(event) {
+            console.log(event);
+            var con = $(event).parent().parent().parent();
+            console.log(con);
+            var idCon = $(con).attr("id");
+            $(con).attr("hidden", "true");
+            if ($(con).hasClass("order-1")) {
+                $(con).removeClass("order-1");
+                $('#null1').removeAttr("hidden");
+            }
+             if ($(con).hasClass("order-2")) {
+                $(con).removeClass("order-2");
+                $('#null2').removeAttr("hidden");
+            }
+             if ($(con).hasClass("order-3")) {
+                $(con).removeClass("order-3");
+                $('#null3').removeAttr("hidden");
+            }
+             if ($(con).hasClass("order-4")) {
+                $(con).removeClass("order-4");
+                $('#null4').removeAttr("hidden");
+            }
+             if ($(con).hasClass("order-5")) {
+                $(con).removeClass("order-5");
+                $('#null5').removeAttr("hidden");
+            }
+             if ($(con).hasClass("order-6")) {
+                $(con).removeClass("order-6");
+                $('#null6').removeAttr("hidden");
+            }
+
+            if (idCon == "mod1") {
+                $('#healthRadio').removeAttr("disabled");
+                
+            }
+            if (idCon == "mod2") {
+                $('#abilityRadio').removeAttr("disabled");
+               
+            }
+            if (idCon == "mod3") {
+                $('#skillRadio').removeAttr("disabled");
+                
+            }
+            if (idCon == "mod4") {
+                $('#attackRadio').removeAttr("disabled");
+               
+            }
+            if (idCon == "mod5") {
+                $('#featRadio').removeAttr("disabled");
+                
+            }
+            if (idCon == "mod6") {
+                $('#perRadio').removeAttr("disabled");
+               
+            }
+
+            
+        }
+        function setActive(event) {
+            
+            var location = $(event).parent();
+
+            
+            activeMod = $(location).attr('id');
+
+            $('input:radio:not(:disabled):first').prop("checked", true);
+
+           
+        }
+
+        function confirmMod() {
+            var val = $('input[name="modRadios"]:checked').val();
+           
+            var idRad = $('input[name="modRadios"]:checked').attr('id');
+             
+             var stringStart = '#';
+            idVal = stringStart.concat(activeMod);
+
+            modVal = stringStart.concat(val);
+
+            idRad = stringStart.concat(idRad);
+            $(idVal).attr("hidden", "true"); var stringStart = '#';
+            idVal = stringStart.concat(activeMod);
+
+            $(idVal).attr("hidden", "true");
+
+            if (activeMod == "null1") {
+                $(modVal).addClass("order-1");
+            }
+             if (activeMod == "null2") {
+                $(modVal).addClass("order-2");
+            }
+             if (activeMod == "null3") {
+                $(modVal).addClass("order-3");
+            }
+             if (activeMod == "null4") {
+                $(modVal).addClass("order-4");
+            }
+             if (activeMod == "null5") {
+                $(modVal).addClass("order-5");
+            }
+             if (activeMod == "null6") {
+                $(modVal).addClass("order-6");
+            }
+
+            $(modVal).removeAttr("hidden");
+            console.log(idRad);
+            $(idRad).attr("disabled", "true");
+            $(idRad).prop("checked", false);
+
         }
     </script>
 </body>

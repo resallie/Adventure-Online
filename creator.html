@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/mdb.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/mdb.css" />
+    <style>
+         body{
+            font-family:'Hoefler Text'; 
+            color:darkred;
+        }
+          .homebutton:hover{
+            background-color:lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 text-center">
+                <h3 style="cursor:pointer;" class="homebutton" onclick="window.location.href='index.html'">Home</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col d-flex justify-content-center">
+                <h1 >Character Creator</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div id="charCreate" class="carousel" data-interval="false">
+                <ol style="background-color:dimgray; " class="carousel-indicators">
+                    <li data-target="#charCreate" data-slide-to="0" class="active"></li>
+                    <li data-target="#charCreate" data-slide-to="1"></li>
+                    <li data-target="#charCreate" data-slide-to="2"></li>
+                    <li data-target="#charCreate" data-slide-to="3"></li>
+                    <li data-target="#charCreate" data-slide-to="4"></li>
+                    
+                </ol>
+
+                <div class="carousel-inner" role="listbox">
+                    <div style="background-color:beige" class="carousel-item active">
+                        <div class="card" style="width:1200px; height:500px; background-color:beige">
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <h3>Basic Information</h3>
+                                </div>
+                                <div class="row justify-content-center" style="width:1000px">
+                                    <form style="width:800px">
+                                        <h5 class="mx-5" style="margin-top:30px;">Name</h5>
+                                        <div class="md-form  form-group form-lg mx-5 ">
+                                            <input type="text" id="charName" class="form-control" />
+                                            <label for="charName">Character Name</label>
+                                        </div>
+                                        <h5 class="mx-5" style="margin-top:50px;">Class</h5>
+                                        <select class=" mx-5 mr-5 browser-default custom-select">
+                                            <option selected>Choose a Class</option>
+                                            <option value="1">Barbarian</option>
+                                            <option value="2">Bard</option>
+                                            <option value="3">Cleric</option>
+                                            <option value="4">Druid</option>
+                                            <option value="5">Fighter</option>
+                                            <option value="6">Monk</option>
+                                            <option value="7">Paladin</option>
+                                            <option value="8">Ranger</option>
+                                            <option value="9">Rogue</option>
+                                            <option value="10">Sorcerer</option>
+                                            <option value="11">Warlock</option>
+                                            <option value="12">Wizard</option>
+                                        </select>
+                                        <h5 class="mx-5" style="margin-top:50px;">Race</h5>
+                                        <select class=" mx-5 mr-5 browser-default custom-select">
+                                            <option selected>Choose a Race</option>
+                                            <option value="1">Dragonborn</option>
+                                            <option value="2">Dwarf</option>
+                                            <option value="3">Elf</option>
+                                            <option value="4">Gnome</option>
+                                            <option value="5">Half-Elf</option>
+                                            <option value="6">Halfling</option>
+                                            <option value="7">Half-Orc</option>
+                                            <option value="8">Human</option>
+                                            <option value="9">Tiefling</option>
+
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background-color:lightgray" class="carousel-item">
+                        <div class="card" style="width:1200px; height:500px; background-color:beige">
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <h3>Ability Scores</h3>
+                                </div>
+                                <div class="row mx-5 my-4">
+                                    <div class="col-2"><h5>Strength</h5></div>
+
+                                    <div class="col-10">
+                                        <h6 style="position:absolute; left:15px; top:20px;">0</h6>
+                                        <h6 style="position:absolute; left:62px; top:20px;">1</h6>
+                                        <h6 style="position:absolute; left:104px; top:20px;">2</h6>
+                                        <h6 style="position:absolute; left:146px; top:20px;">3</h6>
+                                        <h6 style="position:absolute; left:188px; top:20px;">4</h6>
+                                        <h6 style="position:absolute; left:230px; top:20px;">5</h6>
+                                        <h6 style="position:absolute; left:272px; top:20px;">6</h6>
+                                        <h6 style="position:absolute; left:314px; top:20px;">7</h6>
+                                        <h6 style="position:absolute; left:356px; top:20px;">8</h6>
+                                        <h6 style="position:absolute; left:398px; top:20px;">9</h6>
+                                        <h6 style="position:absolute; left:436px; top:20px;">10</h6>
+                                        <h6 style="position:absolute; left:478px; top:20px;">11</h6>
+                                        <h6 style="position:absolute; left:520px; top:20px;">12</h6>
+                                        <h6 style="position:absolute; left:562px; top:20px;">13</h6>
+                                        <h6 style="position:absolute; left:604px; top:20px;">14</h6>
+                                        <h6 style="position:absolute; left:646px; top:20px;">15</h6>
+                                        <h6 style="position:absolute; left:688px; top:20px;">16</h6>
+                                        <h6 style="position:absolute; left:730px; top:20px;">17</h6>
+                                        <h6 style="position:absolute; left:776px; top:20px;">18</h6>
+                                        <h6 style="position:absolute; left:818px; top:20px;">19</h6>
+                                        <input type="range" class="custom-range" min="0" max="20" id="str" />
+                                        <h6 style="position:absolute; right:10px; top:20px;">20</h6>
+                                    </div>
+                                </div>
+                                <div class="row mx-5 my-4">
+                                    <div class="col-2"><h5>Dexterity</h5></div>
+
+                                    <div class="col-10">
+                                        <h6 style="position:absolute; left:15px; top:20px;">0</h6>
+                                        <h6 style="position:absolute; left:62px; top:20px;">1</h6>
+                                        <h6 style="position:absolute; left:104px; top:20px;">2</h6>
+                                        <h6 style="position:absolute; left:146px; top:20px;">3</h6>
+                                        <h6 style="position:absolute; left:188px; top:20px;">4</h6>
+                                        <h6 style="position:absolute; left:230px; top:20px;">5</h6>
+                                        <h6 style="position:absolute; left:272px; top:20px;">6</h6>
+                                        <h6 style="position:absolute; left:314px; top:20px;">7</h6>
+                                        <h6 style="position:absolute; left:356px; top:20px;">8</h6>
+                                        <h6 style="position:absolute; left:398px; top:20px;">9</h6>
+                                        <h6 style="position:absolute; left:436px; top:20px;">10</h6>
+                                        <h6 style="position:absolute; left:478px; top:20px;">11</h6>
+                                        <h6 style="position:absolute; left:520px; top:20px;">12</h6>
+                                        <h6 style="position:absolute; left:562px; top:20px;">13</h6>
+                                        <h6 style="position:absolute; left:604px; top:20px;">14</h6>
+                                        <h6 style="position:absolute; left:646px; top:20px;">15</h6>
+                                        <h6 style="position:absolute; left:688px; top:20px;">16</h6>
+                                        <h6 style="position:absolute; left:730px; top:20px;">17</h6>
+                                        <h6 style="position:absolute; left:776px; top:20px;">18</h6>
+                                        <h6 style="position:absolute; left:818px; top:20px;">19</h6>
+                                        <input type="range" class="custom-range" min="0" max="20" id="dex" />
+                                        <h6 style="position:absolute; right:10px; top:20px;">20</h6>
+                                    </div>
+                                </div>
+                                <div class="row mx-5 my-4">
+                                    <div class="col-2"><h5>Constitution</h5></div>
+
+                                    <div class="col-10">
+                                        <h6 style="position:absolute; left:15px; top:20px;">0</h6>
+                                        <h6 style="position:absolute; left:62px; top:20px;">1</h6>
+                                        <h6 style="position:absolute; left:104px; top:20px;">2</h6>
+                                        <h6 style="position:absolute; left:146px; top:20px;">3</h6>
+                                        <h6 style="position:absolute; left:188px; top:20px;">4</h6>
+                                        <h6 style="position:absolute; left:230px; top:20px;">5</h6>
+                                        <h6 style="position:absolute; left:272px; top:20px;">6</h6>
+                                        <h6 style="position:absolute; left:314px; top:20px;">7</h6>
+                                        <h6 style="position:absolute; left:356px; top:20px;">8</h6>
+                                        <h6 style="position:absolute; left:398px; top:20px;">9</h6>
+                                        <h6 style="position:absolute; left:436px; top:20px;">10</h6>
+                                        <h6 style="position:absolute; left:478px; top:20px;">11</h6>
+                                        <h6 style="position:absolute; left:520px; top:20px;">12</h6>
+                                        <h6 style="position:absolute; left:562px; top:20px;">13</h6>
+                                        <h6 style="position:absolute; left:604px; top:20px;">14</h6>
+                                        <h6 style="position:absolute; left:646px; top:20px;">15</h6>
+                                        <h6 style="position:absolute; left:688px; top:20px;">16</h6>
+                                        <h6 style="position:absolute; left:730px; top:20px;">17</h6>
+                                        <h6 style="position:absolute; left:776px; top:20px;">18</h6>
+                                        <h6 style="position:absolute; left:818px; top:20px;">19</h6>
+                                        <input type="range" class="custom-range" min="0" max="20" id="con" />
+                                        <h6 style="position:absolute; right:10px; top:20px;">20</h6>
+                                    </div>
+                                </div>
+                                <div class="row mx-5 my-4">
+                                    <div class="col-2"><h5>Intelligence</h5></div>
+
+                                    <div class="col-10">
+                                        <h6 style="position:absolute; left:15px; top:20px;">0</h6>
+                                        <h6 style="position:absolute; left:62px; top:20px;">1</h6>
+                                        <h6 style="position:absolute; left:104px; top:20px;">2</h6>
+                                        <h6 style="position:absolute; left:146px; top:20px;">3</h6>
+                                        <h6 style="position:absolute; left:188px; top:20px;">4</h6>
+                                        <h6 style="position:absolute; left:230px; top:20px;">5</h6>
+                                        <h6 style="position:absolute; left:272px; top:20px;">6</h6>
+                                        <h6 style="position:absolute; left:314px; top:20px;">7</h6>
+                                        <h6 style="position:absolute; left:356px; top:20px;">8</h6>
+                                        <h6 style="position:absolute; left:398px; top:20px;">9</h6>
+                                        <h6 style="position:absolute; left:436px; top:20px;">10</h6>
+                                        <h6 style="position:absolute; left:478px; top:20px;">11</h6>
+                                        <h6 style="position:absolute; left:520px; top:20px;">12</h6>
+                                        <h6 style="position:absolute; left:562px; top:20px;">13</h6>
+                                        <h6 style="position:absolute; left:604px; top:20px;">14</h6>
+                                        <h6 style="position:absolute; left:646px; top:20px;">15</h6>
+                                        <h6 style="position:absolute; left:688px; top:20px;">16</h6>
+                                        <h6 style="position:absolute; left:730px; top:20px;">17</h6>
+                                        <h6 style="position:absolute; left:776px; top:20px;">18</h6>
+                                        <h6 style="position:absolute; left:818px; top:20px;">19</h6>
+                                        <input type="range" class="custom-range" min="0" max="20" id="int" />
+                                        <h6 style="position:absolute; right:10px; top:20px;">20</h6>
+                                    </div>
+                                </div>
+                                <div class="row mx-5 my-4">
+                                    <div class="col-2"><h5>Wisdom</h5></div>
+
+                                    <div class="col-10">
+                                        <h6 style="position:absolute; left:15px; top:20px;">0</h6>
+                                        <h6 style="position:absolute; left:62px; top:20px;">1</h6>
+                                        <h6 style="position:absolute; left:104px; top:20px;">2</h6>
+                                        <h6 style="position:absolute; left:146px; top:20px;">3</h6>
+                                        <h6 style="position:absolute; left:188px; top:20px;">4</h6>
+                                        <h6 style="position:absolute; left:230px; top:20px;">5</h6>
+                                        <h6 style="position:absolute; left:272px; top:20px;">6</h6>
+                                        <h6 style="position:absolute; left:314px; top:20px;">7</h6>
+                                        <h6 style="position:absolute; left:356px; top:20px;">8</h6>
+                                        <h6 style="position:absolute; left:398px; top:20px;">9</h6>
+                                        <h6 style="position:absolute; left:436px; top:20px;">10</h6>
+                                        <h6 style="position:absolute; left:478px; top:20px;">11</h6>
+                                        <h6 style="position:absolute; left:520px; top:20px;">12</h6>
+                                        <h6 style="position:absolute; left:562px; top:20px;">13</h6>
+                                        <h6 style="position:absolute; left:604px; top:20px;">14</h6>
+                                        <h6 style="position:absolute; left:646px; top:20px;">15</h6>
+                                        <h6 style="position:absolute; left:688px; top:20px;">16</h6>
+                                        <h6 style="position:absolute; left:730px; top:20px;">17</h6>
+                                        <h6 style="position:absolute; left:776px; top:20px;">18</h6>
+                                        <h6 style="position:absolute; left:818px; top:20px;">19</h6>
+                                        <input type="range" class="custom-range" min="0" max="20" id="wis" />
+                                        <h6 style="position:absolute; right:10px; top:20px;">20</h6>
+                                    </div>
+                                </div>
+                                <div class="row mx-5 my-4">
+                                    <div class="col-2"><h5>Charisma</h5></div>
+
+                                    <div class="col-10">
+                                        <h6 style="position:absolute; left:15px; top:20px;">0</h6>
+                                        <h6 style="position:absolute; left:62px; top:20px;">1</h6>
+                                        <h6 style="position:absolute; left:104px; top:20px;">2</h6>
+                                        <h6 style="position:absolute; left:146px; top:20px;">3</h6>
+                                        <h6 style="position:absolute; left:188px; top:20px;">4</h6>
+                                        <h6 style="position:absolute; left:230px; top:20px;">5</h6>
+                                        <h6 style="position:absolute; left:272px; top:20px;">6</h6>
+                                        <h6 style="position:absolute; left:314px; top:20px;">7</h6>
+                                        <h6 style="position:absolute; left:356px; top:20px;">8</h6>
+                                        <h6 style="position:absolute; left:398px; top:20px;">9</h6>
+                                        <h6 style="position:absolute; left:436px; top:20px;">10</h6>
+                                        <h6 style="position:absolute; left:478px; top:20px;">11</h6>
+                                        <h6 style="position:absolute; left:520px; top:20px;">12</h6>
+                                        <h6 style="position:absolute; left:562px; top:20px;">13</h6>
+                                        <h6 style="position:absolute; left:604px; top:20px;">14</h6>
+                                        <h6 style="position:absolute; left:646px; top:20px;">15</h6>
+                                        <h6 style="position:absolute; left:688px; top:20px;">16</h6>
+                                        <h6 style="position:absolute; left:730px; top:20px;">17</h6>
+                                        <h6 style="position:absolute; left:776px; top:20px;">18</h6>
+                                        <h6 style="position:absolute; left:818px; top:20px;">19</h6>
+                                        <input type="range" class="custom-range" min="0" max="20" id="cha" />
+                                        <h6 style="position:absolute; right:10px; top:20px;">20</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background-color:lightgray" class="carousel-item">
+                        <div class="card" style="width:1200px; height:500px; background-color:beige">
+                            <div class=" mx-5 ml-3 card-body">
+                                <div class="row justify-content-center">
+                                    <h3>Skills</h3>
+                                </div>
+                                <div class="row my-3 justify-content-center">
+                                    <div class="col-2"></div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="acro" />
+                                            <label class="custom-control-label" for="acro">Acrobatics</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="ani" />
+                                            <label class="custom-control-label" for="ani">Animal Handling</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="arca" />
+                                            <label class="custom-control-label" for="arca">Arcana</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-3 justify-content-center">
+                                    <div class="col-2"></div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="ath" />
+                                            <label class="custom-control-label" for="ath">Athletics</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="dec" />
+                                            <label class="custom-control-label" for="dec">Deception</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="hist" />
+                                            <label class="custom-control-label" for="hist">History</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-3 justify-content-center">
+                                    <div class="col-2"></div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="ins" />
+                                            <label class="custom-control-label" for="ins">Insight</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="intim" />
+                                            <label class="custom-control-label" for="intim">Intimidation</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="invest" />
+                                            <label class="custom-control-label" for="invest">Investigation</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-3 justify-content-center">
+                                    <div class="col-2"></div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="medi" />
+                                            <label class="custom-control-label" for="medi">Medicine</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="nat" />
+                                            <label class="custom-control-label" for="nat">Nature</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="per" />
+                                            <label class="custom-control-label" for="per">Perception</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-3 justify-content-center">
+                                    <div class="col-2"></div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="perfor" />
+                                            <label class="custom-control-label" for="perfor">Performance</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="persu" />
+                                            <label class="custom-control-label" for="persu">Persuasion</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="reg" />
+                                            <label class="custom-control-label" for="reg">Religion</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-3 justify-content-center">
+                                    <div class="col-2"></div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="soh" />
+                                            <label class="custom-control-label" for="soh">Sleight of Hand</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="stel" />
+                                            <label class="custom-control-label" for="stel">Stealth</label>
+                                        </div>
+                                    </div>
+                                    <div class="col text-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="sur" />
+                                            <label class="custom-control-label" for="sur">Survival</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background-color:lightgray" class="carousel-item">
+                        <div class="card" style="width:1200px; height:500px; background-color:beige">
+                            <div class="card-body mx-5">
+                                <div class="row justify-content-center">
+                                    <h3>Battle Info</h3>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-3">
+                                        <h5 class="mx-1" style="margin-top:10px;">Total Hit Points</h5>
+                                        <div class="md-form  form-group form-lg mx-1 ">
+                                            <input type="number" id="hp" class="form-control" />
+                                            <label for="hp">HP</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <h5 class="mx-1" style="margin-top:10px;">Level</h5>
+                                        <div class="md-form  form-group form-lg mx-1 ">
+                                            <input type="number" id="level" class="form-control" />
+                                            <label for="level">Level</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <h5 class="mx-1" style="margin-top:10px;">Experience</h5>
+                                        <div class="md-form  form-group form-lg mx-1 ">
+                                            <input type="number" id="xp" class="form-control" />
+                                            <label for="xp">XP</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-6">
+                                        <h5 class="mx-1" style="margin-top:30px;">Main Attacks</h5>
+                                        <div class="md-form  form-group form-lg mx-1 ">
+                                            <input type="text" id="at1" class="form-control" />
+                                            <label for="at">Attack 1</label>
+                                        </div>
+                                        <div class="md-form  form-group form-lg mx-1 ">
+                                            <input type="text" id="at2" class="form-control" />
+                                            <label for="at2">Attack 2</label>
+                                        </div>
+                                        <div class="md-form  form-group form-lg mx-1 ">
+                                            <input type="text" id="at3" class="form-control" />
+                                            <label for="at3">Attack 3</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background-color:lightgray" class="carousel-item">
+                        <div class="card" style="width:1200px; height:500px; background-color:beige">
+                            <div class="card-body">
+                                <div class="row justify-content-center">
+                                    <h3>Descriptions</h3>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-6">
+                                        <h5 class="mx-1" style="margin-top:10px;">Personality</h5>
+                                        <div class="md-form">
+                                            <textarea id="personality" class="md-textarea form-control" rows="2"></textarea>
+                                            <label for="personality">Ideals, Bonds, and Flaws</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-6">
+                                        <h5 class="mx-1" style="margin-top:10px;">Features</h5>
+                                        <div class="md-form">
+                                            <textarea id="feats" class="md-textarea form-control" rows="2"></textarea>
+                                            <label for="feats">Feats</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <a class="carousel-control-prev" href="#charCreate" role="button" data-slide="prev">
+                    <span style="background-color:darkslategray" class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#charCreate" role="button" data-slide="next">
+                    <span style="background-color:darkslategray" class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
